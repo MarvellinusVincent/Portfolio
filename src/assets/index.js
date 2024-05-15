@@ -53,7 +53,7 @@ import iu from './company/iu.jpeg';
 import okanemo from './company/okanemo.png'
 import self from './company/self.png'
 
-import komikult from './projects/komikult.png';
+import statspot from './projects/statspot.png';
 import leaderboard from './projects/leaderboard.png';
 import math from './projects/math-magicians.png';
 import movie from './projects/movie-metro.png';
@@ -86,7 +86,7 @@ export {
   javascript,
   postgresql,
   reactjs,
-  komikult,
+  statspot,
   leaderboard,
   math,
   movie,

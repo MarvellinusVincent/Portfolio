@@ -16,11 +16,10 @@ import {
   nosql,
   r,
   swift,
-  komikult,
+  statspot,
   leaderboard,
   math,
   movie,
-  nyeusi,
   iu,
   okanemo,
   self
@@ -172,7 +171,7 @@ const projects = [
   {
     id: 'project-1',
     name: 'Spotify Profile',
-    description: 'A visually appealing personalized spotify data to view your top artists, top tracks, recently played tracks, and detailed audio information about each track',
+    description: 'A visually appealing personalized spotify data to view your top artists, top songs, recently played songs, and your library. Save new songs of recommended tracks based on your existing playlists and more! ',
     tags: [
       {
         name: 'react',
@@ -187,9 +186,9 @@ const projects = [
         color: 'pink-text-gradient',
       },
     ],
-    image: komikult,
-    repo: 'https://github.com/shaqdeff/KomiKult',
-    demo: 'https://shaqdeff.github.io/KomiKult/',
+    image: statspot,
+    repo: 'https://github.com/MarvellinusVincent/SpotiStats',
+    demo: 'https://statspot-fe32fb3a9656.herokuapp.com',
   },
   {
     id: 'project-2',
