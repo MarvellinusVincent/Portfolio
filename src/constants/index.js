@@ -210,8 +210,7 @@ const projects = [
       },
     ],
     image: leaderboard,
-    repo: 'https://github.com/shaqdeff/Leaderboard',
-    demo: 'https://shaqdeff.github.io/Leaderboard/',
+    repo: 'https://github.com/MarvellinusVincent/Chess-iOS',
   },
   {
     id: 'project-3',
@@ -254,8 +253,8 @@ const projects = [
       },
     ],
     image: math,
-    repo: 'https://github.com/shaqdeff/Math-Magicians',
-    demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
+    repo: 'https://github.com/orgs/Team-3-Patient-and-Insurance-Management/repositories',
+    demo: 'https://frontend-1-hmaf.onrender.com',
   },
 ];
 
