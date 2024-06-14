@@ -75,34 +75,36 @@ const ProjectCard = ({
               font-poppins tracking-[1px]">
               {description}
             </p>
-            <button
-              className="live-demo flex justify-between 
-              sm:text-[16px] text-[14px] text-timberWolf 
-              font-bold font-beckman items-center py-5 pl-2 pr-3 
-              whitespace-nowrap gap-1 sm:w-[138px] sm:h-[50px] 
-              w-[125px] h-[46px] rounded-[10px] glassmorphism 
-              sm:mt-[22px] mt-[16px] hover:bg-battleGray 
-              hover:text-eerieBlack transition duration-[0.2s] 
-              ease-in-out"
-              onClick={() => window.open(demo, '_blank')}
-              onMouseOver={() => {
-                document
-                  .querySelector('.btn-icon')
-                  .setAttribute('src', pineappleHover);
-              }}
-              onMouseOut={() => {
-                document
-                  .querySelector('.btn-icon')
-                  .setAttribute('src', pineapple);
-              }}>
-              <img
-                src={pineapple}
-                alt="pineapple"
-                className="btn-icon sm:w-[34px] sm:h-[34px] 
-                  w-[30px] h-[30px] object-contain"
-              />
-              LIVE DEMO
-            </button>
+            {demo && (
+              <button
+                className="live-demo flex justify-between 
+                sm:text-[16px] text-[14px] text-timberWolf 
+                font-bold font-beckman items-center py-5 pl-2 pr-3 
+                whitespace-nowrap gap-1 sm:w-[138px] sm:h-[50px] 
+                w-[125px] h-[46px] rounded-[10px] glassmorphism 
+                sm:mt-[22px] mt-[16px] hover:bg-battleGray 
+                hover:text-eerieBlack transition duration-[0.2s] 
+                ease-in-out"
+                onClick={() => window.open(demo, '_blank')}
+                onMouseOver={() => {
+                  document
+                    .querySelector('.btn-icon')
+                    .setAttribute('src', pineappleHover);
+                }}
+                onMouseOut={() => {
+                  document
+                    .querySelector('.btn-icon')
+                    .setAttribute('src', pineapple);
+                }}>
+                <img
+                  src={pineapple}
+                  alt="pineapple"
+                  className="btn-icon sm:w-[34px] sm:h-[34px] 
+                    w-[30px] h-[30px] object-contain"
+                />
+                LIVE DEMO
+              </button>
+            )}
           </div>
         </>
       )}

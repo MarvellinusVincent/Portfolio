@@ -54,6 +54,8 @@ import okanemo from './company/okanemo.png'
 import self from './company/self.png'
 
 import statspot from './projects/statspot.png';
+import chess from './projects/chess.png';
+import health from './projects/health.png';
 import leaderboard from './projects/leaderboard.png';
 import math from './projects/math-magicians.png';
 import movie from './projects/movie-metro.png';
@@ -86,7 +88,9 @@ export {
   javascript,
   postgresql,
   reactjs,
+  chess,
   statspot,
+  health,
   leaderboard,
   math,
   movie,
