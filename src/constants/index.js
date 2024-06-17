@@ -19,7 +19,7 @@ import {
   statspot,
   chess,
   health,
-  movie,
+  notes,
   iu,
   okanemo,
   self
@@ -214,28 +214,6 @@ const projects = [
   },
   {
     id: 'project-3',
-    name: 'Wellness Tracking System',
-    description: `A comprehensive Wellness Tracking System catering to fitness enthusiasts' needs, offering personalized workout plans, diet recommendations, and mindfulness exercises`,
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: movie,
-    repo: 'https://github.com/shaqdeff/Movie-Metro',
-    demo: 'https://movie-metro.netlify.app/',
-  },
-  {
-    id: 'project-4',
     name: 'Patient Insurance Management System',
     description: 'A digital system designed to manage patient health information and insurance details aimed at improving healthcare management and accessibility',
     tags: [
@@ -255,6 +233,27 @@ const projects = [
     image: health,
     repo: 'https://github.com/orgs/Team-3-Patient-and-Insurance-Management/repositories',
     demo: 'https://frontend-1-hmaf.onrender.com',
+  },
+  {
+    id: 'project-4',
+    name: 'Notes',
+    description: `A simple android notes app utilizing authentication for secure login and allows users to add, delete, and update their notes`,
+    tags: [
+      {
+        name: 'nextjs',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'supabase',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'css',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: notes,
+    repo: 'https://github.com/MarvellinusVincent/Notes',
   },
 ];
 
