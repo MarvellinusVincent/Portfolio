@@ -152,7 +152,7 @@ const experiences = [
     date: 'Jan 2024 - May 2024',
   },
   {
-    title: 'Mobile App Development Teaching Assistant',
+    title: 'Mobile App Development Associate Instructor',
     company_name: 'Indiana University',
     icon: iu,
     iconBg: '#333333',
