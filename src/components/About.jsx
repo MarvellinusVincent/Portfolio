@@ -48,7 +48,7 @@ const About = () => {
       </motion.p>
 
       <motion.p variants={fadeIn('', '', 0.1, 1)} className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-        My main focus these days is continuing my search for internship/job opportunities as an International Student while building side 
+        My main focus these days is continuing my search for job opportunities as an recent international student graduate while building side 
         projects that reflect my interest and skills. Currently, my goal is to create softwares that reside at the intersection of design 
         and engineering - things that look good but are also built well under the hood
       </motion.p>

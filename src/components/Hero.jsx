@@ -46,7 +46,7 @@ const Hero = () => {
               </span>
             </h1>
             <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
-              I'm a senior in Indiana University studying Computer Science with a specialization in Software Engineering and Business
+              I'm a recent Computer Science graduate from Indiana University, specializing in Software Engineering and Business. I'm eager to gain industry experience and am open to discussing sponsorship options as I value growth and learning above all
               <br className="sm:block hidden" />
             </p>
           </div>
