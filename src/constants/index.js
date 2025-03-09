@@ -188,7 +188,7 @@ const projects = [
     ],
     image: statspot,
     repo: 'https://github.com/MarvellinusVincent/SpotiStats',
-    demo: 'https://statspot-fe32fb3a9656.herokuapp.com',
+    demo: 'https://stattrack-8b958c20bedf.herokuapp.com',
   },
   {
     id: 'project-2',
