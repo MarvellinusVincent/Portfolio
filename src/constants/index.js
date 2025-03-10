@@ -171,7 +171,7 @@ const projects = [
   {
     id: 'project-1',
     name: 'Spotify Profile',
-    description: 'A visually appealing personalized spotify data to view your top artists, top songs, recently played songs, and your library. Save new songs of recommended tracks based on your existing playlists and more! ',
+    description: 'A visually appealing personalized spotify data to view your top artists, top songs, recently played songs, and your library. Save new songs of recommended tracks based on your existing playlists and more! For testing: email: stattracktest@gmail.com, password: stattrack123',
     tags: [
       {
         name: 'react',
