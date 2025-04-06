@@ -22,7 +22,8 @@ import {
   notes,
   iu,
   okanemo,
-  self
+  self,
+  rateMyUniversity
 } from '../assets';
 
 export const navLinks = [
@@ -170,6 +171,28 @@ const experiences = [
 const projects = [
   {
     id: 'project-1',
+    name: 'Rate My University',
+    description: 'A web application designed to help students share their experiences at university. Users can rate various aspects of university life, such as campus facilities, classes, and social activities, and see how others have rated them',
+    tags: [
+      {
+        name: 'react',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'postgresql',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'tailwind, svg',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: statspot,
+    repo: 'https://github.com/MarvellinusVincent/ratemystudentlife',
+    demo: 'https://ratemyuniversity.io',
+  },
+  {
+    id: 'project-2',
     name: 'Spotify Profile',
     description: 'A visually appealing personalized spotify data to view your top artists, top songs, recently played songs, and your library. Save new songs of recommended tracks based on your existing playlists and more! For testing: email: stattracktest@gmail.com, password: stattrack123',
     tags: [
@@ -188,10 +211,10 @@ const projects = [
     ],
     image: statspot,
     repo: 'https://github.com/MarvellinusVincent/SpotiStats',
-    demo: 'https://stattrack-8b958c20bedf.herokuapp.com',
+    demo: 'https://spotifystattrack.vercel.app',
   },
   {
-    id: 'project-2',
+    id: 'project-3',
     name: 'Chess',
     description:
       'An iOS chess app that allows you to play singleplayer and multiplayer with a friend near you',
@@ -213,7 +236,7 @@ const projects = [
     repo: 'https://github.com/MarvellinusVincent/Chess-iOS',
   },
   {
-    id: 'project-3',
+    id: 'project-4',
     name: 'Patient Insurance Management System',
     description: 'A digital system designed to manage patient health information and insurance details aimed at improving healthcare management and accessibility',
     tags: [
@@ -235,7 +258,7 @@ const projects = [
     demo: 'https://frontend-1-hmaf.onrender.com',
   },
   {
-    id: 'project-4',
+    id: 'project-5',
     name: 'Notes',
     description: `A simple android notes app utilizing authentication for secure login and allows users to add, delete, and update their notes`,
     tags: [

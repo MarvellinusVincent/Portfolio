@@ -61,6 +61,7 @@ import math from './projects/math-magicians.png';
 import notes from './projects/notes.png';
 import nyeusi from './projects/nyeusi.png';
 import space from './projects/space-hub.png';
+import rateMyUniversity from './projects/rate_my_university.png'
 
 export {
   bwmap,
@@ -120,5 +121,6 @@ export {
   whiteabstractv3,
   randomCode,
   test,
-  logo
+  logo,
+  rateMyUniversity
 };
