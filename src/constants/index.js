@@ -187,7 +187,7 @@ const projects = [
         color: 'pink-text-gradient',
       },
     ],
-    image: statspot,
+    image: rateMyUniversity,
     repo: 'https://github.com/MarvellinusVincent/ratemystudentlife',
     demo: 'https://ratemyuniversity.io',
   },
