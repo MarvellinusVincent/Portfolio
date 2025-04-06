@@ -194,7 +194,7 @@ const projects = [
   {
     id: 'project-2',
     name: 'Spotify Profile',
-    description: 'A visually appealing personalized spotify data to view your top artists, top songs, recently played songs, and your library. Save new songs of recommended tracks based on your existing playlists and more! For testing: email: stattracktest@gmail.com, password: stattrack123',
+    description: 'Stat Spot is a sleek web application that lets users track and analyze their Spotify listening habits. See github for credentials',
     tags: [
       {
         name: 'react',
