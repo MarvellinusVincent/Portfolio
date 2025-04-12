@@ -73,6 +73,18 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
   z-index: 1000;
 }
 
+.snap-mandatory {
+  overflow-y: auto !important;
+  overscroll-behavior-y: none !important;
+  scroll-snap-type: y mandatory !important;
+  transform-style: preserve-3d; /* GPU boost */
+}
+
+[motion] > svg {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 /* ========== UTILITY CLASSES ========== */
 .text-muted {
   color: #666;

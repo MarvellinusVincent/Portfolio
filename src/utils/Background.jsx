@@ -24,10 +24,7 @@ const Background = ({ containerRef, totalPages }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [totalPages]);
 
-  const generateLines = async () => {
-    await new Promise(resolve => setTimeout(resolve, 100)); // Small delay
-  
-    console.log('Generating lines at:', performance.now());
+  const generateLines = () => {
     const newLines = [];
     const lineCount = Math.floor(totalHeight.current / 50);
     
@@ -55,26 +52,23 @@ const Background = ({ containerRef, totalPages }) => {
 
   const { scrollY } = useScroll({
     container: containerRef,
-    smooth: 0.1
+    smooth: 0.05,
+    axis: "y",
+    eventOptions: { passive: false },
+    layoutEffect: false
   });
+  
+  const yOffset = useTransform(scrollY, (value) => -value * 0.5);
 
   useEffect(() => {
-    const unsubscribe = scrollY.on('change', (latest) => {
-      console.log('ScrollY value:', latest, {
-        windowHeight: window.innerHeight,
-        totalHeight: totalHeight.current,
-        expectedOffset: -totalHeight.current * 0.5 * latest
-      });
-    });
-    return () => unsubscribe();
+    let raf;
+    const logScroll = () => {
+      console.log('RAF ScrollY:', scrollY.get());
+      raf = requestAnimationFrame(logScroll);
+    };
+    raf = requestAnimationFrame(logScroll);
+    return () => cancelAnimationFrame(raf);
   }, [scrollY]);
-
-
-  const yOffset = useTransform(
-    scrollY,
-    [0, totalHeight.current],
-    [0, -totalHeight.current * 0.5]
-  );
 
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
@@ -86,22 +80,18 @@ const Background = ({ containerRef, totalPages }) => {
         style={{
           height: `${totalHeight.current}px`,
           y: yOffset,
-          willChange: 'transform',
-          backfaceVisibility: 'hidden'
+          willChange: 'transform'
         }}
       >
         <svg 
           width="100%" 
           height="100%" 
           preserveAspectRatio="none"
-          data-debug="background-svg"
           style={{ 
             position: 'absolute',
             shapeRendering: 'auto',
-            vectorEffect: 'non-scaling-stroke',
-            border: '1px solid red'
+            vectorEffect: 'non-scaling-stroke'
           }}
-          
         >
           {lines.map((line) => (
             <line
