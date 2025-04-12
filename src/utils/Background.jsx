@@ -24,7 +24,10 @@ const Background = ({ containerRef, totalPages }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [totalPages]);
 
-  const generateLines = () => {
+  const generateLines = async () => {
+    await new Promise(resolve => setTimeout(resolve, 100)); // Small delay
+  
+    console.log('Generating lines at:', performance.now());
     const newLines = [];
     const lineCount = Math.floor(totalHeight.current / 50);
     
@@ -55,6 +58,17 @@ const Background = ({ containerRef, totalPages }) => {
     smooth: 0.1
   });
 
+  useEffect(() => {
+    const unsubscribe = scrollY.on('change', (latest) => {
+      console.log('ScrollY value:', latest, {
+        windowHeight: window.innerHeight,
+        totalHeight: totalHeight.current,
+        expectedOffset: -totalHeight.current * 0.5 * latest
+      });
+    });
+    return () => unsubscribe();
+  }, [scrollY]);
+
 
   const yOffset = useTransform(
     scrollY,
@@ -72,18 +86,22 @@ const Background = ({ containerRef, totalPages }) => {
         style={{
           height: `${totalHeight.current}px`,
           y: yOffset,
-          willChange: 'transform'
+          willChange: 'transform',
+          backfaceVisibility: 'hidden'
         }}
       >
         <svg 
           width="100%" 
           height="100%" 
           preserveAspectRatio="none"
+          data-debug="background-svg"
           style={{ 
             position: 'absolute',
             shapeRendering: 'auto',
-            vectorEffect: 'non-scaling-stroke'
+            vectorEffect: 'non-scaling-stroke',
+            border: '1px solid red'
           }}
+          
         >
           {lines.map((line) => (
             <line
