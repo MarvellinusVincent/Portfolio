@@ -24,6 +24,14 @@ const Background = ({ containerRef, totalPages }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [totalPages]);
 
+  useEffect(() => {
+    console.log('Container ref current:', containerRef?.current);
+    if (containerRef?.current) {
+      console.log('Scroll container found in DOM:', document.contains(containerRef.current));
+    }
+  }, [containerRef]);
+  
+
   const generateLines = () => {
     const newLines = [];
     const lineCount = Math.floor(totalHeight.current / 50);
