@@ -24,14 +24,6 @@ const Background = ({ containerRef, totalPages }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [totalPages]);
 
-  useEffect(() => {
-    console.log('Framer Motion features available:', {
-      motion: !!motion,
-      useScroll: !!useScroll,
-      useTransform: !!useTransform
-    });
-  }, []);
-
   const generateLines = () => {
     const newLines = [];
     const lineCount = Math.floor(totalHeight.current / 50);
