@@ -115,7 +115,7 @@ const Experience = () => {
             )}
             icon={download}
           >
-            download_resume.pdf
+            Open Resume
           </Button>
         </motion.div>
       </div>
