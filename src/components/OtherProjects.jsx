@@ -26,7 +26,7 @@ const OtherProjectCard = ({
       className="relative group h-full"
     >
       <div 
-        onClick={() => window.open(link, '_blank')}
+        onClick={() => window.open(link || demo || repo, '_blank')}
         className="block h-full cursor-pointer"
       >
         <div className="h-full flex flex-col bg-white rounded-xl overflow-hidden border border-[#ddd]/30 shadow-sm hover:shadow-md transition-all duration-200 hover:border-[#d08770]/50">
@@ -62,11 +62,15 @@ const OtherProjectCard = ({
               </div>
             </div>
             
-            <h3 className="text-xl font-bold text-[#2d3748] mb-3 group-hover:text-[#d08770] transition-colors duration-200">{name}</h3>
+            <h3 className="text-xl font-bold text-[#2d3748] mb-3 group-hover:text-[#d08770] transition-colors duration-200">
+              {name}
+            </h3>
           </div>
           
           <div className="p-6 pt-0 flex-grow">
-            <p className="text-[#4a5568] mb-6 leading-relaxed">{description}</p>
+            <p className="text-[#4a5568] mb-6 leading-relaxed">
+              {description}
+            </p>
             
             <div className="flex flex-wrap gap-2 mt-auto">
               {tags.map((tag) => (

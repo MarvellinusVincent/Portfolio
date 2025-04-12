@@ -25,12 +25,12 @@ const Hero = () => {
   return (
     <section 
       id="home"
-      className="relative w-full h-screen scroll-mt-20 z-0 py-20"
+      className="relative w-full h-screen scroll-mt-20 z-0 py-10 md:py-20"
     >
       <motion.div 
-        className={`absolute inset-0 max-w-6xl mx-auto flex flex-col justify-center z-10 px-6`}
+        className={`absolute inset-0 max-w-6xl mx-auto flex flex-col justify-center z-10 px-4 md:px-6`}
       >
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <div className="h-6">
             <AnimatePresence>
               {!typingComplete ? (
@@ -64,7 +64,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-[#2d3748] text-6xl sm:text-7xl font-bold mt-2 leading-tight"
+            className="text-[#2d3748] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mt-2 leading-tight"
           >
             Marvellinus Vincent.
           </motion.h1>
@@ -73,7 +73,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="block text-[#4a5568] text-3xl sm:text-4xl font-normal mt-2"
+            className="block text-[#4a5568] text-2xl sm:text-3xl md:text-4xl font-normal mt-2"
           >
             {"Aspiring Full-Stack Developer".split("").map((char, i) => (
               <motion.span
@@ -131,12 +131,12 @@ const Hero = () => {
       </motion.div>
 
       <motion.div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-6 sm:bottom-10 left-0 right-0 z-10 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        <a href="#about" className="block group">
+        <a href="#about" className="inline-block group">
           <div className="flex flex-col items-center">
             <motion.div
               className="w-4 h-4 border-2 border-[#444] rounded-full mb-2"

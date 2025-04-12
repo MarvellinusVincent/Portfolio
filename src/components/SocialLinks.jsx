@@ -13,7 +13,7 @@ const SocialLinks = () => {
         {[
           { icon: githubBlack, url: "https://github.com/MarvellinusVincent", alt: "GitHub" },
           { icon: linkedInBlack, url: "https://www.linkedin.com/in/marvellinusvincent/", alt: "LinkedIn" }
-        ].map((social, i) => (
+        ].map((social) => (
           <motion.a 
             key={social.alt}
             href={social.url}

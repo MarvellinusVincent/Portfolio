@@ -26,12 +26,13 @@ const Background = ({ containerRef, totalPages }) => {
 
   const generateLines = () => {
     const newLines = [];
-    const lineCount = Math.floor(totalHeight.current / 50);
+    const isMobile = window.innerWidth < 768;
+    const lineCount = Math.floor(totalHeight.current / (isMobile ? 100 : 50));
     
     for (let i = 0; i < lineCount; i++) {
       const angle = Math.random() * Math.PI * 2;
-      const length = 30 + Math.random() * 70;
-      const width = 0.5 + Math.random() * 2;
+      const length = isMobile ? 20 + Math.random() * 50 : 30 + Math.random() * 70;
+      const width = isMobile ? 0.3 + Math.random() * 1 : 0.5 + Math.random() * 2;
       const x = Math.random() * 100;
       const y = Math.random() * totalHeight.current;
       const opacity = 0.1 + Math.random() * 0.2;

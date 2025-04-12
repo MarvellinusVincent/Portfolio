@@ -25,7 +25,7 @@ const App = () => {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const currentScrollY = latest * window.innerHeight * 7;
+    const currentScrollY = latest * window.innerHeight * (window.innerWidth < 768 ? 5 : 7);
     if (currentScrollY > lastScrollY.current && currentScrollY > 10) {
       setScrollDirection('down');
     } else if (currentScrollY < lastScrollY.current) {
@@ -43,7 +43,7 @@ const App = () => {
   const totalPages = 9;
 
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       <Navbar scrollDirection={scrollDirection} />
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1 origin-left z-50"
@@ -59,7 +59,7 @@ const App = () => {
       
       <main 
         ref={containerRef}
-        className="h-screen overflow-y-auto relative"
+        className="h-screen overflow-y-auto relative touch-pan-y"
         style={{ scrollBehavior: 'smooth' }}
       >
         <Hero />

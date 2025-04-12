@@ -1,10 +1,12 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { logo } from '../assets';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Navbar = ({ scrollDirection }) => {
   const [active, setActive] = useState('home');
   const [hoveredLink, setHoveredLink] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const controls = useAnimation();
   
   const navLinks = [
@@ -15,8 +17,19 @@ const Navbar = ({ scrollDirection }) => {
     { id: 'contact', title: 'Contact' },
   ];
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const scrollTo = (id) => {
     setActive(id);
+    setMenuOpen(false);
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -81,11 +94,11 @@ const Navbar = ({ scrollDirection }) => {
   };
 
   const handleHoverStart = () => {
-    controls.start("hover");
+    if (!isMobile) controls.start("hover");
   };
 
   const handleHoverEnd = () => {
-    controls.start("rest");
+    if (!isMobile) controls.start("rest");
   };
 
   const handleClick = () => {
@@ -93,6 +106,25 @@ const Navbar = ({ scrollDirection }) => {
       controls.start("reset");
     });
     scrollTo('home');
+  };
+
+  const menuVariants = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    },
+    closed: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.2,
+        ease: "easeIn"
+      }
+    }
   };
 
   return (
@@ -104,7 +136,7 @@ const Navbar = ({ scrollDirection }) => {
         transition: { type: 'spring', damping: 25, stiffness: 200 }
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
         <motion.div
           className="flex items-center cursor-pointer w-10 h-10"
           onClick={handleClick}
@@ -121,7 +153,8 @@ const Navbar = ({ scrollDirection }) => {
           />
         </motion.div>
 
-        <ul className="list-none hidden sm:flex flex-row gap-8 items-center">
+        {/* Desktop Navigation */}
+        <ul className="list-none hidden sm:flex flex-row gap-6 md:gap-8 items-center">
           {navLinks.slice(1).map((nav) => (
             <motion.li
               key={nav.id}
@@ -146,7 +179,64 @@ const Navbar = ({ scrollDirection }) => {
             </motion.li>
           ))}
         </ul>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="sm:hidden flex flex-col justify-center items-center w-8 h-8"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <motion.span 
+            className="block w-6 h-0.5 bg-[#1a202c] mb-1.5"
+            animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.2 }}
+          />
+          <motion.span 
+            className="block w-6 h-0.5 bg-[#1a202c]"
+            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+            transition={{ duration: 0.1 }}
+          />
+          <motion.span 
+            className="block w-6 h-0.5 bg-[#1a202c] mt-1.5"
+            animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.2 }}
+          />
+        </button>
       </div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div 
+            className="sm:hidden bg-[#e8e2d6] w-full px-4 pb-4 shadow-md"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+          >
+            <ul className="list-none flex flex-col gap-4">
+              {navLinks.map((nav) => (
+                <motion.li
+                  key={nav.id}
+                  className={`relative ${
+                    active === nav.id ? 'text-[#1a202c]' : 'text-[#4a5568]'
+                  } text-lg font-mono cursor-pointer py-2 border-b border-[#d1c7b7]`}
+                  onClick={() => scrollTo(nav.id)}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <a>{nav.title}</a>
+                  {active === nav.id && (
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-0.5 bg-[#222]"
+                      layoutId="mobileActiveIndicator"
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                    />
+                  )}
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
