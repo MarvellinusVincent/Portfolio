@@ -40,6 +40,36 @@ const App = () => {
 
   const totalPages = 9;
 
+  function MotionTest() {
+    return (
+      <motion.div
+        animate={{ 
+          rotate: 360,
+          backgroundColor: ['#ff0000', '#00ff00', '#0000ff']
+        }}
+        transition={{ 
+          duration: 1, 
+          repeat: Infinity 
+        }}
+        style={{
+          width: 100,
+          height: 100,
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          zIndex: 9999,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: 'white',
+          fontWeight: 'bold'
+        }}
+      >
+        MOTION TEST
+      </motion.div>
+    );
+  }
+
   return (
     <div className="relative">
       <Navbar scrollDirection={scrollDirection} />
@@ -54,6 +84,8 @@ const App = () => {
       <Background containerRef={containerRef} totalPages={totalPages} />
       
       <SocialLinks />
+
+      <MotionTest />
       
       <main 
         ref={containerRef}

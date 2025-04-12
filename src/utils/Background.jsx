@@ -25,12 +25,12 @@ const Background = ({ containerRef, totalPages }) => {
   }, [totalPages]);
 
   useEffect(() => {
-    console.log('Container ref current:', containerRef?.current);
-    if (containerRef?.current) {
-      console.log('Scroll container found in DOM:', document.contains(containerRef.current));
-    }
-  }, [containerRef]);
-  
+    console.log('Framer Motion features available:', {
+      motion: !!motion,
+      useScroll: !!useScroll,
+      useTransform: !!useTransform
+    });
+  }, []);
 
   const generateLines = () => {
     const newLines = [];
