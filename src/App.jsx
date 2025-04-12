@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import { motion, useScroll, useSpring, useMotionValueEvent } from 'framer-motion';
 import { useRef, useState } from 'react';
 import {
