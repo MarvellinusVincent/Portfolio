@@ -101,7 +101,7 @@ const Navbar = ({ scrollDirection }) => {
       initial={{ y: 0 }}
       animate={{ 
         y: scrollDirection === 'down' ? -70 : 0,
-        transition: { type: 'spring', damping: 50, stiffness: 200 }
+        transition: { type: 'spring', damping: 25, stiffness: 200 }
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
