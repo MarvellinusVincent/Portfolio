@@ -1,135 +1,126 @@
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from 'react-vertical-timeline-component';
+import React from 'react';
 import { motion } from 'framer-motion';
-import 'react-vertical-timeline-component/style.min.css';
-import { styles } from '../styles';
+import { fadeIn, textVariant } from '../utils/motion';
 import { experiences } from '../constants';
-import { SectionWrapper } from '../hoc';
-import { download, downloadHover, resume } from '../assets';
-import { textVariant } from '../utils/motion';
-
-
-const ExperienceCard = ({ experience }) => (
-  <VerticalTimelineElement
-    contentStyle={{
-      background: '#eaeaec',
-      color: '#292929',
-      boxShadow:
-        'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-    }}
-    contentArrowStyle={{
-      borderRight: '7px solid  #232631',
-    }}
-    date={
-      <div>
-        <h3 className="text-dim text-[18px] font-bold font-beckman">
-          {experience.date}
-        </h3>
-      </div>
-    }
-    iconStyle={{ background: experience.iconBg }}
-    icon={
-      <div className="flex justify-center items-center w-full h-full">
-        <img
-          src={experience.icon}
-          alt={experience.company_name}
-          className="w-[60%] h-[60%] object-contain"
-        />
-      </div>
-    }>
-    <div>
-      <h3 className="text-jetLight text-[24px] font-bold font-beckman tracking-[2px]">
-        {experience.title}
-      </h3>
-      <p
-        className="text-taupe text-[22px] font-semibold font-overcameBold tracking-[1px]"
-        style={{ margin: 0 }}>
-        {experience.company_name}
-      </p>
-    </div>
-  </VerticalTimelineElement>
-);
+import { download } from '../assets';
+import Button from '../utils/Button';
 
 const Experience = () => {
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} sm:pl-16 pl-[2rem]`}>
-          What I've done so far
-        </p>
-        <h2 className={`${styles.sectionHeadText} sm:pl-16 pl-[2rem]`}>
-          Work Experience
-        </h2>
-      </motion.div>
+    <section 
+      id="experience"
+      className="relative w-full min-h-screen snap-start scroll-mt-20 z-0 py-20"
+    >
+      <div className="relative max-w-5xl mx-auto px-6 z-10">
+        <motion.div variants={textVariant()} className="mb-16">
+          <p className="text-[#d08770] font-mono text-sm mb-4">Some Things I've Done</p>
+          <h2 className="text-[#2d3748] text-4xl sm:text-5xl font-bold mb-6">Experience</h2>
+          <div className="w-20 h-px bg-[#4a5568]/30" />
+        </motion.div>
 
-      <div className="mt-20 flex flex-col">
-        <VerticalTimeline className="vertical-timeline-custom-line">
-          {experiences.map((experience, index) => (
-            <ExperienceCard key={index} experience={experience} />
-          ))}
-          <VerticalTimelineElement
-            contentStyle={{
-              background: '#eaeaec',
-              color: '#292929',
-              boxShadow:
-                'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            contentArrowStyle={{
-              borderRight: '7px solid  #232631',
-            }}
-            iconStyle={{ background: '#333333' }}
-            icon={
-              <div className="flex justify-center items-center w-full h-full">
-                <img
-                  src={resume}
-                  alt="resume"
-                  className="w-[45%] h-[45%] object-contain"
-                />
-              </div>
-            }>
-            <button
-              className="live-demo flex justify-between 
-              sm:text-[18px] text-[14px] text-timberWolf 
-              font-bold font-beckman items-center py-5 pl-3 pr-3 
-              whitespace-nowrap gap-1 sm:w-[148px] sm:h-[58px] 
-              w-[125px] h-[46px] rounded-[10px] bg-jetLight 
-              sm:mt-[22px] mt-[16px] hover:bg-battleGray 
-              hover:text-eerieBlack transition duration-[0.2s] 
-              ease-in-out"
-              onClick={() =>
-                window.open(
-                  'https://marvellinus-vincent-resume.netlify.app/Resume.pdf',
-                  '_blank'
-                )
-              }
-              onMouseOver={() => {
-                document
-                  .querySelector('.download-btn')
-                  .setAttribute('src', downloadHover);
-              }}
-              onMouseOut={() => {
-                document
-                  .querySelector('.download-btn')
-                  .setAttribute('src', download);
-              }}>
-              MY RESUME
-              <img
-                src={download}
-                alt="download"
-                className="download-btn sm:w-[26px] sm:h-[26px] 
-                w-[23px] h-[23px] object-contain"
-              />
-            </button>
-          </VerticalTimelineElement>
-        </VerticalTimeline>
+        <div className="relative">
+          <div className="absolute left-6 md:left-1/2 h-full w-0.5 bg-[#d08770]/20 transform -translate-x-1/2" />
+
+          <div className="space-y-12">
+            {experiences.map((experience, index) => (
+              <motion.div
+                key={index}
+                variants={fadeIn('up', 'spring', index * 0.1, 0.75)}
+                className="relative group pl-10 md:pl-0"
+                whileHover={{
+                  y: -3, // Slight upward lift
+                  transition: { 
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 10
+                  }
+                }}
+              >
+
+                <div className={`absolute top-2 left-[22px] md:left-1/2 w-3 h-3 rounded-full bg-[#d08770] transform -translate-x-1/2 z-20 border-2 border-white`} />
+                <div className={`${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                  <div className="relative">
+                    <motion.div 
+                      className="relative z-10 p-6 bg-white rounded-lg border-2 border-[#d08770]/50 overflow-hidden transition-all duration-300 group-hover:border-[#d08770]"
+                      whileHover={{
+                        scale: 1.01,
+                        transition: { duration: 0.2 }
+                      }}
+                    >
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                        <div className={`${index % 2 === 0 ? '' : 'md:order-2'}`}>
+                          <p className="text-[#d08770] font-mono text-xs mb-1">{experience.date}</p>
+                          <h3 className="text-[#222] text-xl font-bold">{experience.title}</h3>
+                          <p className="text-[#666]">{experience.company_name}</p>
+                        </div>
+                        <div className={`w-12 h-12 rounded-full bg-white border border-[#ddd] shadow-sm flex items-center justify-center p-2 ${index % 2 === 0 ? '' : 'md:order-1'}`}>
+                          <img 
+                            src={experience.icon} 
+                            alt={experience.company_name} 
+                            className="w-full h-full object-contain" 
+                          />
+                        </div>
+                      </div>
+
+                      <ul className={`text-[#555] text-sm space-y-2 ${index % 2 === 0 ? '' : 'md:text-right'}`}>
+                        {(experience.description || ['No details provided']).map((point, i) => (
+                          <li key={i} className="flex">
+                            {index % 2 === 0 ? (
+                              <>
+                                <span className="text-[#5e81ac] mr-2 flex items-center">▹</span>
+                                <span className="flex-1">{point}</span>
+                              </>
+                            ) : (
+                              <>
+                                <span className="flex-1">{point}</span>
+                                <span className="text-[#5e81ac] ml-2 flex items-center">◃</span>
+                              </>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+
+                    <motion.div 
+                      className="absolute -bottom-3 -right-3 w-full h-full border-2 border-[#4a5568]/20 rounded-lg group-hover:border-[#4a5568]/40 transition-all duration-500"
+                      whileHover={{
+                        x: -2,
+                        y: -2,
+                        transition: { duration: 0.3 }
+                      }}
+                    />
+                    
+                    <motion.div 
+                      className="absolute -inset-2 bg-[#d08770]/10 rounded-lg opacity-0 group-hover:opacity-100 blur-md transition-all duration-500"
+                      whileHover={{
+                        scale: 1.02,
+                        transition: { duration: 0.4 }
+                      }}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div 
+          variants={fadeIn('up', 'spring', experiences.length * 0.1, 0.75)}
+          className="mt-20 text-center"
+        >
+          <Button
+            onClick={() => window.open(
+              'https://marvellinus-vincent-resume.netlify.app/Resume.pdf',
+              '_blank'
+            )}
+            icon={download}
+          >
+            download_resume.pdf
+          </Button>
+        </motion.div>
       </div>
-    </>
+    </section>
   );
 };
 
-export default SectionWrapper(Experience, 'work');
+export default Experience;

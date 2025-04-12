@@ -1,97 +1,161 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { styles } from '../styles';
-import { navLinks } from '../constants';
-import { test, laptopOnDesk, worldmap } from '../assets';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { githubBlack, linkedInBlack } from '../assets';
+import Button from '../utils/Button';
 
 const Hero = () => {
+  const [typingComplete, setTypingComplete] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTypingComplete(true);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const TypingCursor = () => (
+    <motion.span
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ repeat: Infinity, duration: 0.8, repeatType: 'reverse' }}
+      className="inline-block w-2 h-6 bg-[#555] ml-1"
+    />
+  );
+
   return (
-    <>
-      <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
-        <img
-          src={laptopOnDesk}
-          alt="world map"
-          className="w-full h-full sm:block hidden object-cover"
-        />
-      </div>
-      <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
-        <img
-          src={worldmap}
-          alt="world map"
-          className="w-full h-full sm:hidden block object-cover"
-        />
-      </div>
-      <section
-        className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
-        sm:bg-hero bg-hero-mobile overflow-hidden">
-        <div
-          className={`absolute inset-0 sm:top-[250px] top-[150px] 
-          lg:top-[150px] xl:top-[250px] ${styles.paddingX} 
-          max-w-7xl mx-auto flex flex-row items-start
-          justify-between gap-3`}>
-          <div className="flex flex-col justify-center items-center mt-5 ml-3">
-            <div className="w-5 h-5 rounded-full bg-[#0a0a0a] sm:hidden" />
-            <div className="w-1 sm:h-80 h-40 bw-gradient sm:hidden" />
+    <section 
+      id="home"
+      className="relative w-full h-screen scroll-mt-20 z-0 py-20"
+    >
+      <motion.div 
+        className={`absolute inset-0 max-w-6xl mx-auto flex flex-col justify-center z-10 px-6`}
+      >
+        <div className="space-y-6">
+          <div className="h-6">
+            <AnimatePresence>
+              {!typingComplete ? (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-[#d08770] font-mono text-lg inline-flex items-center"
+                >
+                  <motion.span
+                    initial={{ width: 0 }}
+                    animate={{ width: 'auto' }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    Hi, my name is
+                  </motion.span>
+                  <TypingCursor />
+                </motion.p>
+              ) : (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-[#d08770] font-mono text-lg"
+                >
+                  Hi, my name is
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
 
-          <div>
-            <h1
-              className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
-              Hi, I'm{' '}
-              <span
-                className="sm:text-battleGray sm:text-[90px] 
-                text-eerieBlack text-[50px] font-mova
-                font-extrabold uppercase">
-                Marvellinus Vincent
-              </span>
-            </h1>
-            <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
-              I'm a recent Computer Science graduate from Indiana University, specializing in Software Engineering and Business. I'm eager to gain industry experience and am open to discussing sponsorship options as I value growth and learning above all
-              <br className="sm:block hidden" />
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-[#2d3748] text-6xl sm:text-7xl font-bold mt-2 leading-tight"
+          >
+            Marvellinus Vincent.
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="block text-[#4a5568] text-3xl sm:text-4xl font-normal mt-2"
+          >
+            {"Aspiring Full-Stack Developer".split("").map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + i * 0.03 }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-[#1a202c] max-w-lg mt-6 space-y-4"
+          >
+            <p className="text-lg">
+              I'm a recent computer science graduate specializing in Software Engineering and Information Systems
             </p>
+            <p className="text-lg">
+              Passionate about clean code, beautiful design, robust backend systems, and always eager to gain new experiences
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-12 flex flex-wrap gap-4"
+          >
+            <Button 
+                onClick={() => {
+                  const projectsSection = document.getElementById('projects');
+                  if (projectsSection) {
+                    projectsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { 
+                    duration: 0.6,
+                    ease: [0.16, 1, 0.3, 1]
+                  }
+                }}
+              >
+                View my work
+              </Button>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      <motion.div 
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+      >
+        <a href="#about" className="block group">
+          <div className="flex flex-col items-center">
+            <motion.div
+              className="w-4 h-4 border-2 border-[#444] rounded-full mb-2"
+              animate={{
+                y: [0, 8, 0],
+                borderColor: ['#444', '#666', '#444']
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: 'loop',
+                ease: 'easeInOut',
+              }}
+            />
+            <div className="text-[#666] font-mono text-xs">Scroll down</div>
           </div>
-          <div
-            className="w-screen flex flex-col items-start 
-            justify-center sm:-ml-[3rem] xxs:mt-4"></div>
-
-          <div></div>
-        </div>
-
-        <div
-          className="absolute xs:bottom-10 bottom-32 w-full 
-          flex justify-center items-center">
-          <a href="#about">
-            <div
-              className="w-[35px] h-[64px] rounded-3xl border-4 
-            border-french border-dim flex
-            justify-center items-start p-2">
-              <motion.div
-                animate={{
-                  y: [0, 24, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: 'loop',
-                }}
-                className="w-3 h-3 rounded-full bg-taupe mb-1"
-              />
-            </div>
-          </a>
-        </div>
-
-        {/* Your image comes here. Feel free to remove image if you don't plan to have one.*/}
-        {/* <div>
-          <img
-            className="absolute bottom-0 ml-[50vw] 
-            lg:ml-[75vw] md:ml-[60vw] xmd:ml-[60vw] 2xl:ml-[83vw]
-            sm:h-[90vh] md:h-[70vh] xl:h-[80vh]"
-            src={test}
-            alt="marvell"
-          />
-        </div> */}
-      </section>
-    </>
+        </a>
+      </motion.div>
+    </section>
   );
 };
 

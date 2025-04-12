@@ -27,6 +27,24 @@ export default {
         richBlack: '#2e2e2e',
         eerieBlack: '#1f1f1f',
         onyx: '#5b5b5b',
+        eerieBlack: '#1A1A1D',
+        night: '#0D0D0D',
+        jet: '#2D2D2D',
+        jetLight: '#3D3D3D',
+        timberWolf: '#D9D9D9',
+        taupe: '#B8B8B8',
+        french: '#6D6875',
+        battleGray: '#8E8E8E',
+        silver: '#C0C0C0',
+        flashWhite: '#F2F2F2',
+        primary: '#6D6875',
+        secondary: '#B5838D',
+        accent: '#E5989B',
+        neonPink: '#FF6EC7',
+        electricBlue: '#00F5FF',
+        cyberPurple: '#9D00FF',
+        matrixGreen: '#00FF41',
+        darkMatrix: '#0D0208'
       },
       boxShadow: {
         card: '0px 35px 120px -15px #1f1f1f',
@@ -63,6 +81,17 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
       },
     },
+    writingMode: {
+      'vertical-rl': 'vertical-rl',
+    }
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.writing-vertical-rl': {
+          writingMode: 'vertical-rl',
+        },
+      })
+    }
+  ],
 };

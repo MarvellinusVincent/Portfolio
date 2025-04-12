@@ -1,151 +1,52 @@
-import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-import { styles } from '../styles';
-import { SectionWrapper } from '../hoc';
-import { slideIn } from '../utils/motion';
-import { send, sendHover } from '../assets';
+import { fadeIn } from '../utils/motion';
+import { send } from '../assets';
+import Button from '../utils/Button';
 
 const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setForm({ ...form, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    emailjs
-      .send(
-        'service_myx10wn',
-        'template_r0gqqul',
-        {
-          from_name: form.name,
-          to_name: 'Marvellinus Vincent',
-          from_email: form.email,
-          to_email: 'mvincen@iu.edu',
-          message: form.message,
-        },
-        '-gog8HhP76EYyfD12'
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert('Thanks for reaching out! I look forward to connecting with you soon!');
-
-          setForm({
-            name: '',
-            email: '',
-            message: '',
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.log(error);
-          alert('Something went wrong. Please try again.');
-        }
-      );
-  };
-
   return (
-    <div
-      className="-mt-[8rem] xl:flex-row flex-col-reverse 
-      flex gap-10 overflow-hidden">
-      <motion.div
-        variants={slideIn('left', 'tween', 0.2, 1)}
-        className="flex-[0.75] bg-jet p-8 rounded-2xl">
-        <h3 className={styles.sectionHeadTextLight}>Get In Touch</h3>
-        <p className={styles.sectionSubText}>
-          Currently looking for any new opportunities after December 2024 and my inbox is always open. 
-          Whether you have a question or just want to say hi, I'll do my best to get back to you!</p>
+    <section 
+      id="contact"
+      className="relative w-full h-auto min-h-[75vh] snap-start scroll-mt-20 z-0 py-12 flex flex-col items-center justify-center"
+    >
+      <div className="relative max-w-lg mx-auto px-6 z-10 w-full text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <p className="text-[#d08770] font-mono text-sm mb-4">Thinking of reaching out?</p>
+          <h2 className="text-[#2d3748] text-4xl sm:text-5xl font-bold mb-6">Let’s connect!</h2>
+          <div className="w-16 h-px bg-[#555]/30 mx-auto mb-4" />
+          <p className="text-[#555] text-lg">
+            I'm currently looking for software engineering opportunities. Feel free to get in touch if you think I'd be a great fit!
+          </p>
+        </motion.div>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="mt-10 flex flex-col gap-6 font-poppins">
-          <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">Your Name</span>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="What's your name?"
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium"
-            />
-          </label>
-          <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">Your Email</span>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your email?"
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium"
-            />
-          </label>
-          <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">
-              Your Message
-            </span>
-            <textarea
-              rows="7"
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              placeholder="What's your message?"
-              className="bg-eerieBlack py-4 px-6
-              placeholder:text-taupe
-              text-timberWolf rounded-lg outline-none
-              border-none font-medium resize-none"
-            />
-          </label>
-
-          <button
-            type="submit"
-            className="live-demo flex justify-center sm:gap-4 
-            gap-3 sm:text-[20px] text-[16px] text-timberWolf 
-            font-bold font-beckman items-center py-5
-            whitespace-nowrap sm:w-[130px] sm:h-[50px] 
-            w-[100px] h-[45px] rounded-[10px] bg-night 
-            hover:bg-battleGray hover:text-eerieBlack 
-            transition duration-[0.2s] ease-in-out"
-            onMouseOver={() => {
-              document
-                .querySelector('.contact-btn')
-                .setAttribute('src', sendHover);
+        <motion.div
+          variants={fadeIn('up', 'spring', 0.2, 1)}
+          className="flex justify-center"
+        >
+          <Button 
+            href="mailto:vmarvellinus@gmail.com"
+            icon={send}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              transition: { 
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1]
+              }
             }}
-            onMouseOut={() => {
-              document.querySelector('.contact-btn').setAttribute('src', send);
-            }}>
-            {loading ? 'Sending' : 'Send'}
-            <img
-              src={send}
-              alt="send"
-              className="contact-btn sm:w-[26px] sm:h-[26px] 
-              w-[23px] h-[23px] object-contain"
-            />
-          </button>
-        </form>
-      </motion.div>
-    </div>
+          >
+            Email Me
+          </Button>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
-export default SectionWrapper(Contact, 'contact');
+export default Contact;
