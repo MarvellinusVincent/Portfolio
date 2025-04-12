@@ -110,7 +110,7 @@ const Experience = () => {
         >
           <Button
             onClick={() => window.open(
-              'https://marvellinus-vincent-resume.netlify.app/Resume.pdf',
+              'https://marvellinusvincent.com/Resume.pdf',
               '_blank'
             )}
             icon={download}
