@@ -1,58 +1,65 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const Background = ({ containerRef, totalPages }) => {
-  const lines = useRef(null);
+  const [lines, setLines] = useState([]);
   const viewportHeight = useRef(0);
-  const initialized = useRef(false);
+  const totalHeight = useRef(0);
+  const linesContainerRef = useRef(null);
 
-  const { scrollY } = useScroll({
-    container: containerRef,
-    smooth: 0.1
-  });
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      viewportHeight.current = window.innerHeight;
+      totalHeight.current = viewportHeight.current * totalPages;
+      generateLines();
+    }
 
-  if (!initialized.current) {
-    viewportHeight.current = typeof window !== 'undefined' ? window.innerHeight : 0;
-    const totalHeight = viewportHeight.current * totalPages;
-    const lineCount = Math.floor(totalHeight / 100);
+    const handleResize = () => {
+      viewportHeight.current = window.innerHeight;
+      totalHeight.current = viewportHeight.current * totalPages;
+      generateLines();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [totalPages]);
+
+  const generateLines = () => {
+    const newLines = [];
+    const lineCount = Math.floor(totalHeight.current / 50);
     
-    lines.current = Array.from({ length: lineCount }).map((_, i) => {
+    for (let i = 0; i < lineCount; i++) {
       const angle = Math.random() * Math.PI * 2;
-      const length = 20 + Math.random() * 60;
-      const width = 0.5 + Math.random() * 3;
+      const length = 30 + Math.random() * 70;
+      const width = 0.5 + Math.random() * 2;
       const x = Math.random() * 100;
-      const y = Math.random() * totalHeight;
-      const opacity = 0.2 + Math.random() * 0.1;
+      const y = Math.random() * totalHeight.current;
+      const opacity = 0.1 + Math.random() * 0.2;
 
-      return {
+      newLines.push({
         angle,
         length,
         width,
         x,
         y,
         color: `rgba(106, 106, 106, ${opacity})`,
-        id: `line-${i}-${performance.now()}`
-      };
-    });
-
-    initialized.current = true;
-  }
-
-  useEffect(() => {
-    const handleResize = () => {
-      viewportHeight.current = window.innerHeight;
-    };
-
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
+        id: `line-${i}-${Math.random().toString(36).substr(2, 9)}`
+      });
     }
-  }, []);
+    
+    setLines(newLines);
+  };
+
+  const { scrollY } = useScroll({
+    container: containerRef,
+    smooth: 0.1
+  });
+
 
   const yOffset = useTransform(
     scrollY,
-    [0, viewportHeight.current * totalPages],
-    [0, -viewportHeight.current * totalPages]
+    [0, totalHeight.current],
+    [0, -totalHeight.current * 0.5]
   );
 
   return (
@@ -60,9 +67,10 @@ const Background = ({ containerRef, totalPages }) => {
       <div className="absolute inset-0 bg-[#f9f6f0]" />
       
       <motion.div 
+        ref={linesContainerRef}
         className="absolute inset-0 w-full"
         style={{
-          height: `${viewportHeight.current * totalPages}px`,
+          height: `${totalHeight.current}px`,
           y: yOffset,
           willChange: 'transform'
         }}
@@ -77,7 +85,7 @@ const Background = ({ containerRef, totalPages }) => {
             vectorEffect: 'non-scaling-stroke'
           }}
         >
-          {lines.current?.map((line) => (
+          {lines.map((line) => (
             <line
               key={line.id}
               x1={`${line.x}%`}
