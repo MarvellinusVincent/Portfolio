@@ -6,6 +6,9 @@ export default defineConfig({
   assetsInclude: ['**/*.JPG', '**/*.jpg'],
   plugins: [react()],
   build: {
+    rollupOptions: {
+      external: ['next/navigation'],
+    },
     chunkSizeWarningLimit: 1600,
     cssCodeSplit: false,
     sourcemap: true

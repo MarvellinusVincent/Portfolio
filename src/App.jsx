@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/next';
+import { inject } from '@vercel/analytics';
 import { motion, useScroll, useSpring, useMotionValueEvent } from 'framer-motion';
 import { useRef, useState } from 'react';
 import {
@@ -15,6 +15,7 @@ import {
 import Background from './utils/Background';
 
 const App = () => {
+  inject();
   const containerRef = useRef(null);
   const [scrollDirection, setScrollDirection] = useState('up');
   const lastScrollY = useRef(0);
