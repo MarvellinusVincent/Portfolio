@@ -60,16 +60,6 @@ const Background = ({ containerRef, totalPages }) => {
   
   const yOffset = useTransform(scrollY, (value) => -value * 0.5);
 
-  useEffect(() => {
-    let raf;
-    const logScroll = () => {
-      console.log('RAF ScrollY:', scrollY.get());
-      raf = requestAnimationFrame(logScroll);
-    };
-    raf = requestAnimationFrame(logScroll);
-    return () => cancelAnimationFrame(raf);
-  }, [scrollY]);
-
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
       <div className="absolute inset-0 bg-[#f9f6f0]" />

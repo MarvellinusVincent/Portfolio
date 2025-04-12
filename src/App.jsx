@@ -57,7 +57,7 @@ const App = () => {
       
       <main 
         ref={containerRef}
-        className="snap-mandatory h-screen overflow-y-auto relative"
+        className="h-screen overflow-y-auto relative"
         style={{ scrollBehavior: 'smooth' }}
       >
         <Hero />
