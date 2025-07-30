@@ -36,9 +36,9 @@ const experiences = [
     icon: iu,
     iconBg: '#333333',
     description: [
-      'Assisted 30 students with mobile app development projects using Android Studio and Kotlin',
-      'Conducted code walkthroughs to demonstrate how to solve common issues and optimize app performance',
-      'Guided students through debugging processes and taught them how to use Android Studio’s debugging tools'
+      'Developed Python scripts (OCR, text cleaning, OpenAI integration) to process 2,900+ scam-related images and videos, extracting and classifying text with Mistral-7B and Llama-2 via Ollama and LM Studio, improving dataset usability for NLP tasks',
+      'Built a BERT-based multi-label classifier (PyTorch) to automate detection of psychological pressure tactics in scam posts, including data preprocessing, model training, and performance evaluation',
+      'Collaborated on a codebook for annotation guidelines, refining definitions through literature review and analyzing 300+ posts to standardize labeling for pressure tactics and audience targeting'
     ],
     date: 'February 2024 - Present',
   },
@@ -48,9 +48,9 @@ const experiences = [
     icon: iu,
     iconBg: '#333333',
     description: [
-      'Developed Python scripts (OCR, text cleaning, OpenAI integration) to process 2,900+ scam-related images and videos, extracting and classifying text with Mistral-7B and Llama-2 via Ollama and LM Studio, improving dataset usability for NLP tasks',
-      'Built a BERT-based multi-label classifier (PyTorch) to automate detection of psychological pressure tactics in scam posts, including data preprocessing, model training, and performance evaluation',
-      'Collaborated on a codebook for annotation guidelines, refining definitions through literature review and analyzing 300+ posts to standardize labeling for pressure tactics and audience targeting'
+      'Assisted 30 students with mobile app development projects using Android Studio and Kotlin',
+      'Conducted code walkthroughs to demonstrate how to solve common issues and optimize app performance',
+      'Guided students through debugging processes and taught them how to use Android Studio’s debugging tools'
     ],
     date: 'Aug 2024 - December 2024',
   },
