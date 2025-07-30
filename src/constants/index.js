@@ -31,7 +31,7 @@ export const navLinks = [
 
 const experiences = [
   {
-    title: 'Mobile App Development Associate Instructor',
+    title: 'Research Assistant',
     company_name: 'Indiana University',
     icon: iu,
     iconBg: '#333333',
@@ -40,7 +40,19 @@ const experiences = [
       'Conducted code walkthroughs to demonstrate how to solve common issues and optimize app performance',
       'Guided students through debugging processes and taught them how to use Android Studio’s debugging tools'
     ],
-    date: 'Aug 2024 - Present',
+    date: 'February 2024 - Present',
+  },
+  {
+    title: 'Mobile App Development Associate Instructor',
+    company_name: 'Indiana University',
+    icon: iu,
+    iconBg: '#333333',
+    description: [
+      'Developed Python scripts (OCR, text cleaning, OpenAI integration) to process 2,900+ scam-related images and videos, extracting and classifying text with Mistral-7B and Llama-2 via Ollama and LM Studio, improving dataset usability for NLP tasks',
+      'Built a BERT-based multi-label classifier (PyTorch) to automate detection of psychological pressure tactics in scam posts, including data preprocessing, model training, and performance evaluation',
+      'Collaborated on a codebook for annotation guidelines, refining definitions through literature review and analyzing 300+ posts to standardize labeling for pressure tactics and audience targeting'
+    ],
+    date: 'Aug 2024 - December 2024',
   },
   {
     title: 'Math Teaching Assistant',
@@ -142,6 +154,14 @@ const projects = [
           url: 'https://marketplace.visualstudio.com/items?itemName=MarvellinusVincent.arctic-depth'
         },
         {
+          text: 'JetBrains',
+          url: 'https://plugins.jetbrains.com/plugin/27074-arcticdepth'
+        },
+        {
+          text: 'Zed',
+          url: 'https://zed.dev/extensions/arctic-depth'
+        },
+        {
           text: 'npm',
           url: 'https://www.npmjs.com/package/arctic-depth'
         }
@@ -150,6 +170,12 @@ const projects = [
     tags: [
       {
         name: 'VS Code',
+      },
+      {
+        name: 'JetBrains',
+      },
+      {
+        name: 'Zed',
       },
       {
         name: 'npm',
