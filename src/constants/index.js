@@ -37,11 +37,11 @@ const experiences = [
     icon: iu,
     iconBg: '#333333',
     description: [
-      'Developed Python scripts (OCR, text cleaning, OpenAI integration) to process 2,900+ scam-related images and videos, extracting and classifying text with Mistral-7B and Llama-2 via Ollama and LM Studio, improving dataset usability for NLP tasks',
-      'Built a BERT-based multi-label classifier (PyTorch) to automate detection of psychological pressure tactics in scam posts, including data preprocessing, model training, and performance evaluation',
-      'Collaborated on a codebook for annotation guidelines, refining definitions through literature review and analyzing 300+ posts to standardize labeling for pressure tactics and audience targeting'
+      'Engineered scalable Python pipelines integrating OCR, text cleaning, and OpenAI APIs to process 2,900+ scam-related images and videos, extracting and classifying content using Mistral-7B and Llama-2 via Ollama and LM Studio to enhance dataset usability for NLP research',
+      'Trained a BERT-based multi-label classification model in PyTorch to automate detection of psychological pressure tactics in scam posts, implementing end-to-end data preprocessing, model training, and performance evaluation workflows',
+      'Led collaborative development of standardized annotation framework, conducting comprehensive literature review and analyzing 500+ posts to establish robust labeling guidelines for pressure tactics and audience targeting'
     ],
-    date: 'February 2024 - Present',
+    date: 'February 2025 - December 2025',
   },
   {
     title: 'Mobile App Development Associate Instructor',
@@ -49,9 +49,9 @@ const experiences = [
     icon: iu,
     iconBg: '#333333',
     description: [
-      'Assisted 30 students with mobile app development projects using Android Studio and Kotlin',
-      'Conducted code walkthroughs to demonstrate how to solve common issues and optimize app performance',
-      'Guided students through debugging processes and taught them how to use Android Studio’s debugging tools'
+      'Mentored 30 students in Android development using Kotlin and Android Studio, providing technical guidance on mobile app architecture, performance optimization, and debugging methodologies',
+      'Conducted live code walkthroughs demonstrating systematic problem-solving approaches and best practices for resolving common development challenges'
+
     ],
     date: 'Aug 2024 - December 2024',
   },
@@ -63,7 +63,7 @@ const experiences = [
     description: [
       'Assisted students in understanding Finite Mathematics, Calculus I, and Calculus II'
     ],
-    date: 'Aug 2024 - Present',
+    date: 'Aug 2024 - December 2024',
   },
   {
     title: 'Data Mining Teaching Assistant',
@@ -71,7 +71,7 @@ const experiences = [
     icon: iu,
     iconBg: '#333333',
     description: [
-      'Provided personalized guidance on data mining concepts, algorithms, and methodologies'
+      'Provided personalized guidance to students on data mining concepts, algorithms, and methodologies, fostering their understanding and problem-solving skills'
     ],
     date: 'Jan 2024 - May 2024',
   },
@@ -134,6 +134,7 @@ const projects = [
       },
     ],
     image: moodmosaic,
+    repo: 'https://github.com/MarvellinusVincent/MoodMosaic',
     demo: 'https://play.google.com/store/apps/details?id=com.moodmosaic&hl=en',
   },
   {
@@ -211,42 +212,13 @@ const otherProjects = [
     id: 'project-1',
     name: 'Arctic Depth Theme',
     link: 'https://arcticdepthshowcase.vercel.app',
-    description: {
-      text: 'A sleek, high-contrast dark blue theme designed for developers using VS Code who love rich blues and a futuristic aesthetic. Available on ',
-      links: [
-        {
-          text: 'Visual Studio Marketplace',
-          url: 'https://marketplace.visualstudio.com/items?itemName=MarvellinusVincent.arctic-depth'
-        },
-        {
-          text: 'JetBrains',
-          url: 'https://plugins.jetbrains.com/plugin/27074-arcticdepth'
-        },
-        {
-          text: 'Zed',
-          url: 'https://zed.dev/extensions/arctic-depth'
-        },
-        {
-          text: 'npm',
-          url: 'https://www.npmjs.com/package/arctic-depth'
-        }
-      ]
-    },
+    description: 'A sleek, high-contrast dark blue theme designed for developers using VS Code who love rich blues and a futuristic aesthetic. Available on Visual Studio Marketplace, JetBrains, Zed, and npm.',
     tags: [
-      {
-        name: 'VS Code',
-      },
-      {
-        name: 'JetBrains',
-      },
-      {
-        name: 'Zed',
-      },
-      {
-        name: 'npm',
-      },
+      { name: 'VS Code' },
+      { name: 'JetBrains' },
+      { name: 'Zed' },
+      { name: 'npm' },
     ],
-    image: vscodetheme,
     repo: 'https://github.com/MarvellinusVincent/ArcticDepthShowcase',
     demo: 'https://arcticdepthshowcase.vercel.app',
   },

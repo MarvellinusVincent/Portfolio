@@ -33,7 +33,7 @@ const App = () => {
     }
     lastScrollY.current = currentScrollY;
   });
-  
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -45,19 +45,19 @@ const App = () => {
   return (
     <div className="relative overflow-x-hidden">
       <Navbar scrollDirection={scrollDirection} />
-      <motion.div 
+      <motion.div
         className="fixed top-0 left-0 right-0 h-1 origin-left z-50"
-        style={{ 
+        style={{
           scaleX,
           backgroundColor: "#d08770"
         }}
       />
-      
+
       <Background containerRef={containerRef} totalPages={totalPages} />
-      
+
       <SocialLinks />
-      
-      <main 
+
+      <main
         ref={containerRef}
         className="h-screen overflow-y-auto relative touch-pan-y"
         style={{ scrollBehavior: 'smooth' }}
