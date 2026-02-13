@@ -6,6 +6,7 @@ import {
   iu,
   okanemo,
   self,
+  moodmosaic,
   rateMyUniversity,
   vscodetheme
 } from '../assets';
@@ -14,7 +15,7 @@ export const navLinks = [
   {
     id: 'about',
     title: 'About',
-  },  
+  },
   {
     id: 'projects',
     title: 'Projects',
@@ -112,6 +113,31 @@ const experiences = [
 const projects = [
   {
     id: 'project-1',
+    name: 'MoodMosaic',
+    link: 'https://play.google.com/store/apps/details?id=com.moodmosaic&hl=en',
+    description: 'MoodMosaic is a mental wellness mobile application that helps users track and understand their emotional patterns. Built with React Native and Firebase, it provides cloud-based mood tracking with real-time synchronization and interactive data visualizations to identify trends in mental wellness over time',
+    tags: [
+      {
+        name: 'React Native',
+      },
+      {
+        name: 'Firebase',
+      },
+      {
+        name: 'Cloudflare R2',
+      },
+      {
+        name: 'JavaScript',
+      },
+      {
+        name: 'Cloud Storage',
+      },
+    ],
+    image: moodmosaic,
+    demo: 'https://play.google.com/store/apps/details?id=com.moodmosaic&hl=en',
+  },
+  {
+    id: 'project-2',
     name: 'Rate My University',
     link: 'http://ratemyuniversity.io',
     description: 'Rate My University is a dynamic web application that empowers students to share and explore university life experiences. From campus vibes to classroom quality, students can rate and compare various aspects of their university life — helping others make informed decisions',
@@ -141,49 +167,6 @@ const projects = [
     image: rateMyUniversity,
     repo: 'https://github.com/MarvellinusVincent/ratemystudentlife',
     demo: 'http://ratemyuniversity.io',
-  },
-  {
-    id: 'project-2',
-    name: 'Arctic Depth Theme',
-    link: 'https://arcticdepthshowcase.vercel.app',
-    description: {
-      text: 'A sleek, high-contrast dark blue theme designed for developers using VS Code who love rich blues and a futuristic aesthetic. Available on ',
-      links: [
-        {
-          text: 'Visual Studio Marketplace',
-          url: 'https://marketplace.visualstudio.com/items?itemName=MarvellinusVincent.arctic-depth'
-        },
-        {
-          text: 'JetBrains',
-          url: 'https://plugins.jetbrains.com/plugin/27074-arcticdepth'
-        },
-        {
-          text: 'Zed',
-          url: 'https://zed.dev/extensions/arctic-depth'
-        },
-        {
-          text: 'npm',
-          url: 'https://www.npmjs.com/package/arctic-depth'
-        }
-      ]
-    },
-    tags: [
-      {
-        name: 'VS Code',
-      },
-      {
-        name: 'JetBrains',
-      },
-      {
-        name: 'Zed',
-      },
-      {
-        name: 'npm',
-      },
-    ],
-    image: vscodetheme,
-    repo: 'https://github.com/MarvellinusVincent/ArcticDepthShowcase',
-    demo: 'https://arcticdepthshowcase.vercel.app',
   },
   {
     id: 'project-3',
@@ -226,6 +209,49 @@ const projects = [
 const otherProjects = [
   {
     id: 'project-1',
+    name: 'Arctic Depth Theme',
+    link: 'https://arcticdepthshowcase.vercel.app',
+    description: {
+      text: 'A sleek, high-contrast dark blue theme designed for developers using VS Code who love rich blues and a futuristic aesthetic. Available on ',
+      links: [
+        {
+          text: 'Visual Studio Marketplace',
+          url: 'https://marketplace.visualstudio.com/items?itemName=MarvellinusVincent.arctic-depth'
+        },
+        {
+          text: 'JetBrains',
+          url: 'https://plugins.jetbrains.com/plugin/27074-arcticdepth'
+        },
+        {
+          text: 'Zed',
+          url: 'https://zed.dev/extensions/arctic-depth'
+        },
+        {
+          text: 'npm',
+          url: 'https://www.npmjs.com/package/arctic-depth'
+        }
+      ]
+    },
+    tags: [
+      {
+        name: 'VS Code',
+      },
+      {
+        name: 'JetBrains',
+      },
+      {
+        name: 'Zed',
+      },
+      {
+        name: 'npm',
+      },
+    ],
+    image: vscodetheme,
+    repo: 'https://github.com/MarvellinusVincent/ArcticDepthShowcase',
+    demo: 'https://arcticdepthshowcase.vercel.app',
+  },
+  {
+    id: 'project-2',
     name: 'Patient Insurance Management System',
     link: 'https://frontend-1-hmaf.onrender.com',
     description: 'A digital system designed to manage patient health information and insurance details aimed at improving healthcare management and accessibility',
@@ -259,7 +285,7 @@ const otherProjects = [
     demo: 'https://frontend-1-hmaf.onrender.com',
   },
   {
-    id: 'project-2',
+    id: 'project-3',
     name: 'Chess',
     link: 'https://github.com/MarvellinusVincent/Chess-iOS',
     description: 'A user-friendly chess application for iOS that supports both Single Player (vs AI) and Pass & Play modes',
@@ -280,7 +306,7 @@ const otherProjects = [
     repo: 'https://github.com/MarvellinusVincent/Chess-iOS',
   },
   {
-    id: 'project-3',
+    id: 'project-4',
     name: 'Pokemon Showdown',
     link: 'https://github.com/MarvellinusVincent/Intro_To_AI_FinalProject',
     description: 'A Pokémon battle AI project that features bots of varying complexity, designed to compete against online players using strategies like max damage, minimax, and reinforcement learning',
@@ -297,12 +323,12 @@ const otherProjects = [
       {
         name: 'Reinforcement Learning',
       },
-      
+
     ],
     repo: 'https://github.com/MarvellinusVincent/Intro_To_AI_FinalProject',
   },
   {
-    id: 'project-4',
+    id: 'project-5',
     name: 'Notes',
     link: 'https://github.com/MarvellinusVincent/Notes',
     description: 'An intuitive Android notes app built with Kotlin in Android Studio, designed for fast and simple note-taking with a clean user interface',
