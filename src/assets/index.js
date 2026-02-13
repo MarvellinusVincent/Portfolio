@@ -19,6 +19,7 @@ import health from './projects/health.png';
 import notes from './projects/notes.png';
 import rateMyUniversity from './projects/rate_my_university.png'
 import vscodetheme from './projects/vscode_theme.png'
+import moodmosaic from './projects/moodmosaic.png'
 
 import profile_1 from './personal/profile_1.JPG'
 import profile_2 from './personal/profile_2.jpg'
@@ -29,6 +30,7 @@ export {
   send,
   chess,
   statspot,
+  moodmosaic,
   health,
   notes,
   iu,
