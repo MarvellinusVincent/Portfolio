@@ -114,7 +114,7 @@ const projects = [
   {
     id: 'project-1',
     name: 'MoodMosaic',
-    link: 'https://play.google.com/store/apps/details?id=com.moodmosaic&hl=en',
+    link: 'https://play.google.com/store/apps/details?id=com.moodmosaic.app&hl=id',
     description: 'MoodMosaic is a mental wellness mobile application that helps users track and understand their emotional patterns. Built with React Native and Firebase, it provides cloud-based mood tracking with real-time synchronization and interactive data visualizations to identify trends in mental wellness over time',
     tags: [
       {
