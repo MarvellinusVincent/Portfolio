@@ -12,6 +12,7 @@ import send from './icons/send.png';
 import iu from './company/iu.png';
 import okanemo from './company/okanemo.png'
 import self from './company/self.png'
+import surplus from './company/surplus.png'
 
 import statspot from './projects/statspot.png';
 import chess from './projects/chess.png';
@@ -36,6 +37,7 @@ export {
   iu,
   okanemo,
   self,
+  surplus,
   instagramBlack,
   instagramWhite,
   linkedInBlack,

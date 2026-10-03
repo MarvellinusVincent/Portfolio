@@ -1,14 +1,11 @@
 import {
   statspot,
-  chess,
-  health,
-  notes,
   iu,
+  surplus,
   okanemo,
   self,
   moodmosaic,
   rateMyUniversity,
-  vscodetheme
 } from '../assets';
 
 export const navLinks = [
@@ -31,6 +28,18 @@ export const navLinks = [
 ];
 
 const experiences = [
+  {
+    title: 'Machine Learning Intern',
+    company_name: 'Surplus Indonesia',
+    icon: surplus,
+    iconBg: '#333333',
+    description: [
+      'Built an end-to-end pricing recommendation pipeline in Python for near-expiry inventory, covering data generation, feature engineering, model training, and inference',
+      'Trained an XGBoost regression model to predict markdown percentages from product category, days to expiry, stock level, sales velocity, and calendar features, evaluated with MAE and R² on a held-out test set',
+      'Designed the schema and a synthetic dataset (3,000 records) to validate the pipeline ahead of real company data, with a documented path to upgrade to a sell-through probability and price optimization approach'
+    ],
+    date: 'May 2026 - Septermber 2026'
+  },
   {
     title: 'Research Assistant',
     company_name: 'Indiana University',
